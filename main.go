@@ -22,6 +22,73 @@ func main() {
     rangeFunc()
     fmt.Println("=== FUNCTIONS ===")
     funcUsage()
+    fmt.Println("=== MULTIPLE VALUES ===")
+    multipleValues()
+    fmt.Println("=== VARIADIC ===")
+    variadicFunc()
+    fmt.Println("=== CLOSURES ===")
+    closuresFunc()
+    fmt.Println("=== RECURSIVE ===")
+    recursiveFunc()
+}
+
+func fact(n int) int {
+    if n == 0 {
+        return 1
+    }
+    return n * fact(n-1)
+}
+
+func recursiveFunc() {
+    fmt.Println(fact(7))
+}
+
+func intSeq() func() int {
+    i := 0
+    return func() int {
+        i++
+        return i
+    }
+}
+
+func closuresFunc() {
+
+    nextInt := intSeq()
+
+    fmt.Println(nextInt())
+    fmt.Println(nextInt())
+    fmt.Println(nextInt())
+
+    newInts := intSeq()
+    fmt.Println(newInts())
+}
+
+func sum(nums ...int) {
+    fmt.Print(nums, " ")
+    total := 0
+    for _, num := range nums {
+        total += num
+    }
+    fmt.Println(total)
+}
+
+func variadicFunc() {
+
+    sum(1, 2)
+    sum(1, 2, 3)
+
+    nums := []int{1, 2, 3, 4}
+    sum(nums...)
+}
+
+func multipleReturnedValues() (int, string) {
+    return 2, "hello"
+}
+
+func multipleValues() {
+    resVal1, resVal2 := multipleReturnedValues()
+    fmt.Println("value 1 :", resVal1)
+    fmt.Println("value 2 :", resVal2)
 }
 
 func plus(a int, b int) int {
