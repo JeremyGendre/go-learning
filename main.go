@@ -20,6 +20,24 @@ func main() {
     mapFunc()
     fmt.Println("=== RANGE ===")
     rangeFunc()
+    fmt.Println("=== FUNCTIONS ===")
+    funcUsage()
+}
+
+func plus(a int, b int) int {
+    return a + b
+}
+
+func plusPlus (a, b, c int) int {
+    return a + b + c
+}
+
+func funcUsage() {
+    res := plus(2,4)
+    fmt.Println("2 + 4 =", res)
+
+    res = plusPlus(3,1,7)
+    fmt.Println("3 + 1 + 7 =", res)
 }
 
 func rangeFunc() {
