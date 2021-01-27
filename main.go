@@ -71,7 +71,7 @@ func mapFunc() {
     _, prs := m["k2"]
     fmt.Println("prs:", prs)
 
-    n := map[string]int{"foo": 1, "bar": 2}
+    n := map[string][]int{"foo": { 1, 6, 8 }, "bar": { 5, 2, 7 }}
     fmt.Println("map:", n)
 }
 
